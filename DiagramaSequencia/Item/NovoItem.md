@@ -2,7 +2,7 @@
 sequenceDiagram 
     % diagrama da tela de novo Item
 
-    actor Engenharia
+    actor Engenheiro
     actor Sistema
     participant C as Cadastro
     participant VC as Verificador Cadastro
@@ -10,8 +10,8 @@ sequenceDiagram
     participant LM as Lista Materiais
 
 
-    Engenharia->>Sistema: Digite as infos necessárias():
-    activate Engenharia
+    Engenheiro->>Sistema: Digite as infos necessárias():
+    activate Engenheiro
     activate Sistema
     Sistema->>C: FormCadastro()
     activate C
@@ -32,7 +32,7 @@ sequenceDiagram
                     % alterar essa parte pós desenvolvimento do diagrama de classes para colocar o comando padrão que aparece no diagrama.
             deactivate LM
             else Não Listagem de Items
-            VL-->>C: semListItem: string
+            VL-->>C: return()
             deactivate VL
             end
     else Erro
@@ -42,7 +42,8 @@ sequenceDiagram
 
     C->>Sistema: CadPronto()
     deactivate C
+    Sistema->>Engenheiro: Cadastro feito()
     deactivate Sistema
-    deactivate Engenharia
+    deactivate Engenheiro
 
 ``` 
