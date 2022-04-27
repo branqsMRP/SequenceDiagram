@@ -15,9 +15,9 @@ sequenceDiagram
     Activate P
 
     alt Pesquisa de Itens
-        P->>VP: VerPesq()        
+        P->>VP: verPesq()        
         Activate VP
-        VP->>BD: BuscBD()
+        VP->>BD: buscBD()
         Activate BD
         BD-->>P: pesquisa: int
         deactivate BD
@@ -41,9 +41,9 @@ sequenceDiagram
     Activate P
 
     alt Pesquisa de Itens
-        P->>VP: VerPesq()        
+        P->>VP: verPesq()        
         Activate VP
-        VP->>BD: BuscBD()
+        VP->>BD: buscBD()
         Activate BD
         BD-->>P: pesquisa: int
         deactivate BD
