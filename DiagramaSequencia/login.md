@@ -11,15 +11,16 @@ sequenceDiagram
     Colaborador->>Sistema: Senha() 
 
     alt verificarLogin
-        Sistema->>V: logOn()
+        Sistema->>V: validate()
         activate V
         V-->>Sistema: login ok: string
     else
         V-->>Sistema: erroLogin: string
         deactivate V
+        Sistema->>Colaborador: Favor logar()
     end
 
-    Sistema->>Colaborador: Favor logar()
+
     
     Sistema-->>Colaborador: Você está logado!
     deactivate Sistema

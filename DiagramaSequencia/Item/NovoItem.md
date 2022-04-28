@@ -2,7 +2,7 @@
 sequenceDiagram 
     % diagrama da tela de novo Item
 
-    actor Engenheiro
+    actor Engenheiro/Admin
     actor Sistema
     participant C as Cadastro
     participant VC as Verificador Cadastro
@@ -10,19 +10,19 @@ sequenceDiagram
     participant LM as Lista Materiais
 
 
-    Engenheiro->>Sistema: Digite as infos necessárias():
-    activate Engenheiro
+    Engenheiro/Admin->>Sistema: Digite as infos necessárias()
+    activate Engenheiro/Admin
     activate Sistema
-    Sistema->>C: FormCadastro()
+    Sistema->>C: inputListaItens()
     activate C
     % alterar essa parte pós desenvolvimento do diagrama de classes para colocar o comando padrão que aparece no diagrama.
 
     alt Cadastro de Item
-        C->>VC: VerifCad()
+        C->>VC: validar_Inserir()
         % alterar essa parte pós desenvolvimento do diagrama de classes para colocar o comando padrão que aparece no diagrama.
         activate VC
             alt Lista de Itens
-            VC->>VL: VeriListItem()
+            VC->>VL: validar_inserirMaterialListaMaterial()
                     % alterar essa parte pós desenvolvimento do diagrama de classes para colocar o comando padrão que aparece no diagrama.
             activate VL
             VL->>LM: ListItem()
@@ -42,8 +42,8 @@ sequenceDiagram
 
     C->>Sistema: CadPronto()
     deactivate C
-    Sistema->>Engenheiro: Cadastro feito()
+    Sistema->>Engenheiro/Admin: Cadastro feito()
     deactivate Sistema
-    deactivate Engenheiro
+    deactivate Engenheiro/Admin
 
 ``` 

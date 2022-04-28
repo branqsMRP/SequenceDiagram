@@ -1,6 +1,6 @@
 ````mermaid
 sequenceDiagram 
-    actor A as Almoxarifado
+    actor A as Almoxarifado/Admin
     actor S as Sistema
     participant P as Pesquisa
     participant VP as Verificador Pesquisa
@@ -11,23 +11,33 @@ sequenceDiagram
     A->>S: Digite o id do item que será pesquisado()
     Activate A
     Activate S
-    S->>P: pesqItem()
+    S->>P: pesquisarItens()
     Activate P
 
     alt Pesquisa de Itens
-        P->>VP: verPesq()        
+        P->>VP: validate()        
         Activate VP
-        VP->>BD: buscBD()
+        VP->>BD: buscarItem()
+        Deactivate VP
         Activate BD
-        BD-->>P: pesquisa: int
+        BD-->>P: getItem()
         deactivate BD
+                opt Pesquisa de Itens Fabricados
+                    P->>VP: validate()        
+                    Activate VP
+                    VP->>BD: buscarItemFabricado()
+                    Activate BD
+                    BD-->>P: getAllItensFabricados()
+                    deactivate BD
+                end
         
     else
         VP-->>P: erro: string
         deactivate VP
     end
 
-    P->>S: resultPesq()    
+
+    P->>S: getItens()    
     deactivate P
     S->>A: Pesquisa realizada()
     deactivate S
@@ -37,23 +47,32 @@ sequenceDiagram
     opt Pesquisa por nome opcional
     A->>S: Digite o nome do item que será pesquisado()
     Activate S
-    S->>P: pesqItem()
+    S->>P: pesquisarItens()
     Activate P
 
     alt Pesquisa de Itens
-        P->>VP: verPesq()        
+        P->>VP: validate()         
         Activate VP
-        VP->>BD: buscBD()
+        VP->>BD: buscarItem()
+        Deactivate VP
         Activate BD
-        BD-->>P: pesquisa: int
+        BD-->>P: getItem()
         deactivate BD
+            opt Pesquisa de Itens Fabricados
+                P->>VP: validate()        
+                Activate VP
+                VP->>BD: buscarItemFabricado()
+                Activate BD
+                BD-->>P: getAllItensFabricados()
+                deactivate BD
+            end
         
     else
         VP-->>P: erro: string
         deactivate VP
     end
 
-    P->>S: resultPesq()    
+    P->>S: getItens()    
     deactivate P
     S->>A: Pesquisa realizada()
     deactivate S
