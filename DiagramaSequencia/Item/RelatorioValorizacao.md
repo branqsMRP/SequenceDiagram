@@ -1,7 +1,7 @@
 ````mermaid
 sequenceDiagram 
     actor CA as Compras/Admin
-    actor S as Sistema
+    participant S as Sistema
     participant P as Pesquisa
     participant VP as Verificador Pesquisa
     participant BD as Banco de Dados
