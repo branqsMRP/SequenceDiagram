@@ -3,7 +3,7 @@ sequenceDiagram
     % diagrama da tela de novo Item
 
     actor Engenheiro/Admin
-    actor Sistema
+    participant Sistema
     participant C as Cadastro
     participant VC as Verificador Cadastro
     participant VL as Verifica Lista
