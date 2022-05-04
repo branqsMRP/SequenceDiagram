@@ -10,7 +10,9 @@ sequenceDiagram
     participant LM as Lista Material 
     participant P as Projeção
 
+    
     CA->>S: Projeção de Compras
+    activate CA
     activate S
     S->>IM: inclusaoMaterial()
     % alterar depois para ter a classe correta
@@ -18,7 +20,22 @@ sequenceDiagram
     
     alt Está preenchido
     IM->>VI: materialOK()
-    VI->>LM: 
+    activate VI
+    VI->>LM: listaMaterial()
+    activate LM
     else Não está preenchido
+    VI-->>IM: erroInclusão()
+    deactivate VI
     end
+
+    LM->>P: projCompras()
+    deactivate LM
+    activate P
+    P-->>S: ProjOK()
+    deactivate P
+    deactivate IM
+
+    S->>CA: Projeção conluída
+    deactivate S
+    deactivate CA
 ````
