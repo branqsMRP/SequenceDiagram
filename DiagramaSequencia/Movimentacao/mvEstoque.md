@@ -31,4 +31,11 @@ activate II
 
 LI->>ME: movEstoque()
 activate ME
+ME-->>S: Movimentação de Estoque concluida 
+deactivate ME
+deactivate II
+
+S->>AA: Movimentação de estoque concluida
+deactivate S
+deactivate AA
 ````
