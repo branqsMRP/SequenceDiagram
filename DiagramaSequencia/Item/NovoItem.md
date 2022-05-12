@@ -3,22 +3,22 @@ sequenceDiagram
     % diagrama da tela de novo Item
 
     actor Engenheiro/Admin
-    participant Sistema
-    participant C as Cadastro
-    participant VC as Verificador Cadastro
+    participant I as inputItemLote
+    participant C as inputListaItens
+    participant VC as validar_getPrevisaoSaldoEstoque
     participant VL as Verifica Lista
     participant LM as Lista Materiais
 
 
-    Engenheiro/Admin->>Sistema: Digite as infos necessárias()
+    Engenheiro/Admin->>I: ID Item Fabricado, Quantidade
     activate Engenheiro/Admin
-    activate Sistema
-    Sistema->>C: inputListaItens()
+    activate I
+    I->>C: goTelaBuscarItem(idItem, qtd)
     activate C
     % alterar essa parte pós desenvolvimento do diagrama de classes para colocar o comando padrão que aparece no diagrama.
 
     alt Cadastro de Item
-        C->>VC: validar_Inserir()
+        C->>VC: getPrevisaoMovimentacaoLote(listaItensFabricadosDoLote)
         % alterar essa parte pós desenvolvimento do diagrama de classes para colocar o comando padrão que aparece no diagrama.
         activate VC
             alt Lista de Itens
@@ -40,10 +40,10 @@ sequenceDiagram
         deactivate VC
     end
 
-    C->>Sistema: CadPronto()
+    C->>I: CadPronto()
     deactivate C
-    Sistema->>Engenheiro/Admin: Cadastro feito()
-    deactivate Sistema
+    I->>Engenheiro/Admin: Cadastro feito()
+    deactivate I
     deactivate Engenheiro/Admin
 
 ``` 
