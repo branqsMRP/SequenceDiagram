@@ -1,0 +1,189 @@
+sequenceDiagram
+actor User
+User ->> LoteMovimentacaoAction : RetirarInsumosDoEstoque
+activate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> LoteMovimentacaoAction : validar_RetirarInsumosDoEstoque
+activate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : somarInsumoListaPrincipal
+activate ItemService
+ItemService ->> ItemService : getListaMaterial
+activate ItemService
+ItemService ->> ItemDAO : getListaMaterial
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> Material : new
+activate Material
+Material -->> ItemDAO : #32; 
+deactivate Material
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
+activate ItemService
+ItemService ->> Item : new
+activate Item
+Item -->> ItemService : #32; 
+deactivate Item
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : existeItemComNrSerieEmEstoque
+activate ItemService
+ItemService ->> MovimentacaoService : new
+activate MovimentacaoService
+MovimentacaoService ->> MovimentacaoDAO : new
+activate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoService : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoService -->> ItemService : #32; 
+deactivate MovimentacaoService
+ItemService ->> MovimentacaoService : getMovimentacoes
+activate MovimentacaoService
+MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes
+activate MovimentacaoDAO
+MovimentacaoDAO ->> ItemService : new
+activate ItemService
+ItemService -->> MovimentacaoDAO : #32; 
+deactivate ItemService
+MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao
+activate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoDAO : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoService : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoService -->> ItemService : #32; 
+deactivate MovimentacaoService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction -->> LoteMovimentacaoAction : #32; 
+deactivate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> LoteMovimentacaoAction : carregarNaSessionControlesDigitados
+activate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : somarInsumoListaPrincipal
+activate ItemService
+ItemService ->> ItemService : getListaMaterial
+activate ItemService
+ItemService ->> ItemDAO : getListaMaterial
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> Material : new
+activate Material
+Material -->> ItemDAO : #32; 
+deactivate Material
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
+activate ItemService
+ItemService ->> Item : new
+activate Item
+Item -->> ItemService : #32; 
+deactivate Item
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction -->> LoteMovimentacaoAction : #32; 
+deactivate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> MovimentacaoService : new
+activate MovimentacaoService
+MovimentacaoService ->> MovimentacaoDAO : new
+activate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoService : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoService -->> LoteMovimentacaoAction : #32; 
+deactivate MovimentacaoService
+LoteMovimentacaoAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : somarInsumoListaPrincipal
+activate ItemService
+ItemService ->> ItemService : getListaMaterial
+activate ItemService
+ItemService ->> ItemDAO : getListaMaterial
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> Material : new
+activate Material
+Material -->> ItemDAO : #32; 
+deactivate Material
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
+activate ItemService
+ItemService ->> Item : new
+activate Item
+Item -->> ItemService : #32; 
+deactivate Item
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> MovimentacaoService : retirarDoEstoque
+activate MovimentacaoService
+MovimentacaoService ->> MovimentacaoDAO : retirarDoEstoque
+activate MovimentacaoDAO
+MovimentacaoDAO ->> MovimentacaoDAO : movimentar
+activate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoDAO : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoService : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoService -->> LoteMovimentacaoAction : #32; 
+deactivate MovimentacaoService
+LoteMovimentacaoAction ->> MovimentacaoService : retirarDoEstoque
+activate MovimentacaoService
+MovimentacaoService ->> MovimentacaoDAO : retirarDoEstoque
+activate MovimentacaoDAO
+MovimentacaoDAO ->> MovimentacaoDAO : movimentar
+activate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoDAO : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoDAO -->> MovimentacaoService : #32; 
+deactivate MovimentacaoDAO
+MovimentacaoService -->> LoteMovimentacaoAction : #32; 
+deactivate MovimentacaoService
+deactivate LoteMovimentacaoAction

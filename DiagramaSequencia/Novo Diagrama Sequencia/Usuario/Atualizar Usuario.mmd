@@ -1,0 +1,41 @@
+sequenceDiagram
+actor User
+User ->> UsuarioAction : atualizarUsuario
+activate UsuarioAction
+UsuarioAction ->> UsuarioAction : validar_AtualizarUsuario
+activate UsuarioAction
+UsuarioAction ->> Usuario : new
+activate Usuario
+Usuario -->> UsuarioAction : #32; 
+deactivate Usuario
+UsuarioAction ->> Perfil : new
+activate Perfil
+Perfil -->> UsuarioAction : #32; 
+deactivate Perfil
+UsuarioAction -->> UsuarioAction : #32; 
+deactivate UsuarioAction
+UsuarioAction ->> Usuario : new
+activate Usuario
+Usuario -->> UsuarioAction : #32; 
+deactivate Usuario
+UsuarioAction ->> Perfil : new
+activate Perfil
+Perfil -->> UsuarioAction : #32; 
+deactivate Perfil
+UsuarioAction ->> UsuarioService : new
+activate UsuarioService
+UsuarioService ->> UsuarioDAO : new
+activate UsuarioDAO
+UsuarioDAO -->> UsuarioService : #32; 
+deactivate UsuarioDAO
+UsuarioService -->> UsuarioAction : #32; 
+deactivate UsuarioService
+UsuarioAction ->> UsuarioService : atualizar
+activate UsuarioService
+UsuarioService ->> UsuarioDAO : atualizar
+activate UsuarioDAO
+UsuarioDAO -->> UsuarioService : #32; 
+deactivate UsuarioDAO
+UsuarioService -->> UsuarioAction : #32; 
+deactivate UsuarioService
+deactivate UsuarioAction

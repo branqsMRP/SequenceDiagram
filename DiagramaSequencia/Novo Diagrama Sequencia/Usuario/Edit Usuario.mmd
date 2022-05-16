@@ -1,0 +1,37 @@
+sequenceDiagram
+actor User
+User ->> UsuarioAction : editUsuario
+activate UsuarioAction
+UsuarioAction ->> UsuarioService : new
+activate UsuarioService
+UsuarioService ->> UsuarioDAO : new
+activate UsuarioDAO
+UsuarioDAO -->> UsuarioService : #32; 
+deactivate UsuarioDAO
+UsuarioService -->> UsuarioAction : #32; 
+deactivate UsuarioService
+UsuarioAction ->> UsuarioService : getUsuario
+activate UsuarioService
+UsuarioService ->> UsuarioDAO : getUsuario
+activate UsuarioDAO
+UsuarioDAO ->> Usuario : new
+activate Usuario
+Usuario -->> UsuarioDAO : #32; 
+deactivate Usuario
+UsuarioDAO ->> Perfil : new
+activate Perfil
+Perfil -->> UsuarioDAO : #32; 
+deactivate Perfil
+UsuarioDAO ->> UsuarioDAO : getPerfil
+activate UsuarioDAO
+UsuarioDAO ->> Perfil : new
+activate Perfil
+Perfil -->> UsuarioDAO : #32; 
+deactivate Perfil
+UsuarioDAO -->> UsuarioDAO : #32; 
+deactivate UsuarioDAO
+UsuarioDAO -->> UsuarioService : #32; 
+deactivate UsuarioDAO
+UsuarioService -->> UsuarioAction : #32; 
+deactivate UsuarioService
+deactivate UsuarioAction

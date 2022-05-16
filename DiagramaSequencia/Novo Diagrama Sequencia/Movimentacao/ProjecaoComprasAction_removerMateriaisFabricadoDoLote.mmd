@@ -1,0 +1,21 @@
+sequenceDiagram
+actor User
+User ->> ProjecaoComprasAction : removerMateriaisFabricadoDoLote
+activate ProjecaoComprasAction
+ProjecaoComprasAction ->> ProjecaoComprasAction : validar_RemoverMateriaisFabricadoDoLote
+activate ProjecaoComprasAction
+ProjecaoComprasAction -->> ProjecaoComprasAction : #32; 
+deactivate ProjecaoComprasAction
+ProjecaoComprasAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ProjecaoComprasAction : #32; 
+deactivate ItemService
+ProjecaoComprasAction ->> ItemService : removerMateriaisFabricadoDoLote
+activate ItemService
+ItemService -->> ProjecaoComprasAction : #32; 
+deactivate ItemService
+deactivate ProjecaoComprasAction
