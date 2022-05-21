@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> ProjecaoComprasAction : removerMateriaisFabricadoDoLote
+actor CA as Compras/Admin
+CA ->> ProjecaoComprasAction : removerMateriaisFabricadoDoLote
 activate ProjecaoComprasAction
 ProjecaoComprasAction ->> ProjecaoComprasAction : validar_RemoverMateriaisFabricadoDoLote
 activate ProjecaoComprasAction

@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> ItemListaAction : pesquisarItens
+actor AA as Admin/Almoxarifado
+AA ->> ItemListaAction : pesquisarItens
 activate ItemListaAction
 ItemListaAction ->> ItemService : new
 activate ItemService
