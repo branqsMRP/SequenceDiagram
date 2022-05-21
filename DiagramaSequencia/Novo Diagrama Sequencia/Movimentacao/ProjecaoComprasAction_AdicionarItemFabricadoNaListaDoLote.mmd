@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> ProjecaoComprasAction : AdicionarItemFabricadoNaListaDoLote
+actor CA as Compras/Admin
+CA ->> ProjecaoComprasAction : AdicionarItemFabricadoNaListaDoLote
 activate ProjecaoComprasAction
 ProjecaoComprasAction ->> ProjecaoComprasAction : validar_AdicionarItemFabricadoNaListaDoLote
 activate ProjecaoComprasAction
@@ -16,16 +16,8 @@ ProjecaoComprasAction ->> ItemService : getItem
 activate ItemService
 ItemService ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
-ItemDAO ->> Cotacao : new
-activate Cotacao
-Cotacao -->> ItemDAO : #32; 
-deactivate Cotacao
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemService : #32; 
@@ -42,10 +34,6 @@ ItemDAO ->> ItemDAO : getItem
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> Material : new
-activate Material
-Material -->> ItemDAO : #32; 
-deactivate Material
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemService : #32; 
@@ -66,24 +54,12 @@ ProjecaoComprasAction ->> ItemService : getItem
 activate ItemService
 ItemService ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
-ItemDAO ->> Cotacao : new
-activate Cotacao
-Cotacao -->> ItemDAO : #32; 
-deactivate Cotacao
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ProjecaoComprasAction : #32; 
 deactivate ItemService
-ProjecaoComprasAction ->> Material : new
-activate Material
-Material -->> ProjecaoComprasAction : #32; 
-deactivate Material
 deactivate ProjecaoComprasAction

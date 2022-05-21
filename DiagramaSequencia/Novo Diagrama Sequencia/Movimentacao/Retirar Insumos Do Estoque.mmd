@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> LoteMovimentacaoAction : RetirarInsumosDoEstoque
+actor AA as Admin/Almoxarifado
+AA ->> LoteMovimentacaoAction : RetirarInsumosDoEstoque
 activate LoteMovimentacaoAction
 LoteMovimentacaoAction ->> LoteMovimentacaoAction : validar_RetirarInsumosDoEstoque
 activate LoteMovimentacaoAction
@@ -22,10 +22,6 @@ ItemDAO ->> ItemDAO : getItem
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> Material : new
-activate Material
-Material -->> ItemDAO : #32; 
-deactivate Material
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemService : #32; 
@@ -34,10 +30,6 @@ ItemService -->> LoteMovimentacaoAction : #32;
 deactivate ItemService
 LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
 activate ItemService
-ItemService ->> Item : new
-activate Item
-Item -->> ItemService : #32; 
-deactivate Item
 ItemService -->> LoteMovimentacaoAction : #32; 
 deactivate ItemService
 LoteMovimentacaoAction ->> ItemService : existeItemComNrSerieEmEstoque
@@ -90,10 +82,6 @@ ItemDAO ->> ItemDAO : getItem
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> Material : new
-activate Material
-Material -->> ItemDAO : #32; 
-deactivate Material
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemService : #32; 
@@ -102,10 +90,6 @@ ItemService -->> LoteMovimentacaoAction : #32;
 deactivate ItemService
 LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
 activate ItemService
-ItemService ->> Item : new
-activate Item
-Item -->> ItemService : #32; 
-deactivate Item
 ItemService -->> LoteMovimentacaoAction : #32; 
 deactivate ItemService
 LoteMovimentacaoAction -->> LoteMovimentacaoAction : #32; 
@@ -134,20 +118,12 @@ ItemService ->> ItemDAO : getListaMaterial
 activate ItemDAO
 ItemDAO ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> Material : new
-activate Material
-Material -->> ItemDAO : #32; 
-deactivate Material
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemService : #32; 
@@ -156,10 +132,6 @@ ItemService -->> LoteMovimentacaoAction : #32;
 deactivate ItemService
 LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
 activate ItemService
-ItemService ->> Item : new
-activate Item
-Item -->> ItemService : #32; 
-deactivate Item
 ItemService -->> LoteMovimentacaoAction : #32; 
 deactivate ItemService
 LoteMovimentacaoAction ->> MovimentacaoService : retirarDoEstoque

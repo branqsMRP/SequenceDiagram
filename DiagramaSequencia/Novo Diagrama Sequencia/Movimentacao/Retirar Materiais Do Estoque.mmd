@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> MovimentacaoAction : retirarMateriaisDoEstoque
+actor AA as Admin/Almoxarifado
+AA ->> MovimentacaoAction : retirarMateriaisDoEstoque
 activate MovimentacaoAction
 MovimentacaoAction ->> MovimentacaoAction : validar_RetirarMateriaisDoEstoque
 activate MovimentacaoAction

@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> MovimentacaoHistoricoAction : buscarMovimentacoes
+actor AD as Admin/Defalt
+AD ->> MovimentacaoHistoricoAction : buscarMovimentacoes
 activate MovimentacaoHistoricoAction
 MovimentacaoHistoricoAction ->> MovimentacaoHistoricoAction : validar_buscarMovimentacoes
 activate MovimentacaoHistoricoAction
@@ -36,10 +36,6 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> MovimentacaoDAO : #32; 
 deactivate ItemService
-MovimentacaoDAO ->> Material : new
-activate Material
-Material -->> MovimentacaoDAO : #32; 
-deactivate Material
 MovimentacaoDAO ->> UsuarioService : new
 activate UsuarioService
 UsuarioService ->> UsuarioDAO : new
