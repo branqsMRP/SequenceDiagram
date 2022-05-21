@@ -10,9 +10,9 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemBuscaItemAction : #32; 
 deactivate ItemService
-ItemBuscaItemAction ->> ItemService : getItensById
+ItemBuscaItemAction ->> ItemService : getItensById(parteIdItem)
 activate ItemService
-ItemService ->> ItemDAO : getItensById
+ItemService ->> ItemDAO : getItensById(parteIdItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
@@ -31,9 +31,9 @@ opt Busca por Item Fabricado
     deactivate ItemDAO
     ItemService -->> ItemBuscaItemAction : #32; 
     deactivate ItemService
-    ItemBuscaItemAction ->> ItemService : getItensFabricadoById
+    ItemBuscaItemAction ->> ItemService : getItensFabricadoById(parteIdItem)
     activate ItemService
-    ItemService ->> ItemDAO : getItensFabriacadosById
+    ItemService ->> ItemDAO : getItensFabriacadosById(parteIdItem)
     activate ItemDAO
     ItemDAO -->> ItemService : #32; 
     deactivate ItemDAO
