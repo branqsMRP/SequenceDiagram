@@ -1,27 +1,11 @@
 sequenceDiagram
-actor User
-User ->> UsuarioAction : atualizarUsuario
+actor A as Admin
+A ->> UsuarioAction : atualizarUsuario
 activate UsuarioAction
 UsuarioAction ->> UsuarioAction : validar_AtualizarUsuario
 activate UsuarioAction
-UsuarioAction ->> Usuario : new
-activate Usuario
-Usuario -->> UsuarioAction : #32; 
-deactivate Usuario
-UsuarioAction ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioAction : #32; 
-deactivate Perfil
 UsuarioAction -->> UsuarioAction : #32; 
 deactivate UsuarioAction
-UsuarioAction ->> Usuario : new
-activate Usuario
-Usuario -->> UsuarioAction : #32; 
-deactivate Usuario
-UsuarioAction ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioAction : #32; 
-deactivate Perfil
 UsuarioAction ->> UsuarioService : new
 activate UsuarioService
 UsuarioService ->> UsuarioDAO : new

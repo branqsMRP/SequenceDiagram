@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> UsuarioBuscaAction : buscarUsuario
+actor A as Admin
+A ->> UsuarioBuscaAction : buscarUsuario
 activate UsuarioBuscaAction
 UsuarioBuscaAction ->> UsuarioService : new
 activate UsuarioService
@@ -14,26 +14,10 @@ UsuarioBuscaAction ->> UsuarioService : getUsuarios
 activate UsuarioService
 UsuarioService ->> UsuarioDAO : getUsuarios
 activate UsuarioDAO
-UsuarioDAO ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioDAO : #32; 
-deactivate Perfil
 UsuarioDAO ->> UsuarioDAO : getUsuario
 activate UsuarioDAO
-UsuarioDAO ->> Usuario : new
-activate Usuario
-Usuario -->> UsuarioDAO : #32; 
-deactivate Usuario
-UsuarioDAO ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioDAO : #32; 
-deactivate Perfil
 UsuarioDAO ->> UsuarioDAO : getPerfil
 activate UsuarioDAO
-UsuarioDAO ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioDAO : #32; 
-deactivate Perfil
 UsuarioDAO -->> UsuarioDAO : #32; 
 deactivate UsuarioDAO
 UsuarioDAO -->> UsuarioDAO : #32; 

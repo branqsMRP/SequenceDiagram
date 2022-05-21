@@ -1,17 +1,9 @@
 sequenceDiagram
-actor User
-User ->> UsuarioAction : inserirUsuario
+actor A as Admin
+A ->> UsuarioAction : inserirUsuario
 activate UsuarioAction
 UsuarioAction ->> UsuarioAction : validar_InserirUsuario
 activate UsuarioAction
-UsuarioAction ->> Usuario : new
-activate Usuario
-Usuario -->> UsuarioAction : #32; 
-deactivate Usuario
-UsuarioAction ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioAction : #32; 
-deactivate Perfil
 UsuarioAction ->> UsuarioService : new
 activate UsuarioService
 UsuarioService ->> UsuarioDAO : new
@@ -24,20 +16,8 @@ UsuarioAction ->> UsuarioService : getUsuario
 activate UsuarioService
 UsuarioService ->> UsuarioDAO : getUsuario
 activate UsuarioDAO
-UsuarioDAO ->> Usuario : new
-activate Usuario
-Usuario -->> UsuarioDAO : #32; 
-deactivate Usuario
-UsuarioDAO ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioDAO : #32; 
-deactivate Perfil
 UsuarioDAO ->> UsuarioDAO : getPerfil
 activate UsuarioDAO
-UsuarioDAO ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioDAO : #32; 
-deactivate Perfil
 UsuarioDAO -->> UsuarioDAO : #32; 
 deactivate UsuarioDAO
 UsuarioDAO -->> UsuarioService : #32; 
@@ -46,14 +26,6 @@ UsuarioService -->> UsuarioAction : #32;
 deactivate UsuarioService
 UsuarioAction -->> UsuarioAction : #32; 
 deactivate UsuarioAction
-UsuarioAction ->> Usuario : new
-activate Usuario
-Usuario -->> UsuarioAction : #32; 
-deactivate Usuario
-UsuarioAction ->> Perfil : new
-activate Perfil
-Perfil -->> UsuarioAction : #32; 
-deactivate Perfil
 UsuarioAction ->> UsuarioService : new
 activate UsuarioService
 UsuarioService ->> UsuarioDAO : new
