@@ -1,22 +1,22 @@
 sequenceDiagram
 actor A as Admin
-A ->> UsuarioBuscaAction : buscarUsuario
+A ->> UsuarioBuscaAction : buscarUsuario (ID Usuario, Nome, Ativo, Perfil)
 activate UsuarioBuscaAction
-UsuarioBuscaAction ->> UsuarioService : new
+UsuarioBuscaAction ->> UsuarioService : new (idUsuario, nome, ativo, perfil)
 activate UsuarioService
-UsuarioService ->> UsuarioDAO : new
+UsuarioService ->> UsuarioDAO : new (idUsuario, nome, ativo, perfil)
 activate UsuarioDAO
 UsuarioDAO -->> UsuarioService : #32; 
 deactivate UsuarioDAO
 UsuarioService -->> UsuarioBuscaAction : #32; 
 deactivate UsuarioService
-UsuarioBuscaAction ->> UsuarioService : getUsuarios
+UsuarioBuscaAction ->> UsuarioService : getUsuarios (idUsuario, nomeUsuario, ativo, idPerfilUsuario)
 activate UsuarioService
-UsuarioService ->> UsuarioDAO : getUsuarios
+UsuarioService ->> UsuarioDAO : getUsuarios (idUsuario, nomeUsuario, ativo, idPerfilUsuario)
 activate UsuarioDAO
-UsuarioDAO ->> UsuarioDAO : getUsuario
+UsuarioDAO ->> UsuarioDAO : getUsuario (idUsuario)
 activate UsuarioDAO
-UsuarioDAO ->> UsuarioDAO : getPerfil
+UsuarioDAO ->> UsuarioDAO : getPerfil (idPerfil)
 activate UsuarioDAO
 UsuarioDAO -->> UsuarioDAO : #32; 
 deactivate UsuarioDAO
