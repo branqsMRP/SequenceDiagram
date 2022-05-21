@@ -10,19 +10,19 @@ ItemDAO -->> ItemService : #32
 deactivate ItemDAO
 ItemService -->> ItemBuscaValorizacaoAction : #32 
 deactivate ItemService
-ItemBuscaValorizacaoAction ->> ItemService : getItensComCotacao
+ItemBuscaValorizacaoAction ->> ItemService : getItensComCotacao(idItem,nomeItem,possuiNrSerie,possuiListaMaterial,ativo)
 activate ItemService
 ItemService ->> ItemService : getItens
 activate ItemService
-ItemService ->> ItemDAO : getItens
+ItemService ->> ItemDAO : getItens(idItem,nomeItem,possuiNrSerie,possuiListaMaterial,ativo)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
@@ -32,33 +32,33 @@ ItemDAO -->> ItemService : #32
 deactivate ItemDAO
 ItemService -->> ItemService : #32 
 deactivate ItemService
-ItemService ->> ItemDAO : getCotacaoItem
+ItemService ->> ItemDAO : getCotacaoItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
-activate ItemDAO
-ItemDAO -->> ItemDAO : #32 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32 
-deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
-activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
-activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
+activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
+ItemDAO -->> ItemDAO : #32 
+deactivate ItemDAO
+ItemDAO -->> ItemDAO : #32 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32
 deactivate ItemDAO
@@ -66,47 +66,47 @@ ItemDAO -->> ItemDAO : #32
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItem
+ItemDAO ->> ItemDAO : getCotacaoItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
-activate ItemDAO
-ItemDAO -->> ItemDAO : #32 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32 
-deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
-activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO -->> ItemDAO : #32 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32
 deactivate ItemDAO
@@ -114,27 +114,27 @@ ItemDAO -->> ItemService : #32
 deactivate ItemDAO
 ItemService -->> ItemBuscaValorizacaoAction : #32
 deactivate ItemService
-ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarDouble2CasasDecimais
+ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarDouble2CasasDecimais(n)
 activate BranqsSupport
 BranqsSupport -->> ItemBuscaValorizacaoAction : #32
 deactivate BranqsSupport
-ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarDouble2CasasDecimais
+ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarDouble2CasasDecimais(n)
 activate BranqsSupport
 BranqsSupport -->> ItemBuscaValorizacaoAction : #32 
 deactivate BranqsSupport
-ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarMonetarioBr
+ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarMonetarioBr(n)
 activate BranqsSupport
 BranqsSupport -->> ItemBuscaValorizacaoAction : #32 
 deactivate BranqsSupport
-ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarMonetarioBr
+ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarMonetarioBr(n)
 activate BranqsSupport
 BranqsSupport -->> ItemBuscaValorizacaoAction : #32
 deactivate BranqsSupport
-ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarNumeroBr
+ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarNumeroBr(n)
 activate BranqsSupport
 BranqsSupport -->> ItemBuscaValorizacaoAction : #32
 deactivate BranqsSupport
-ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarMonetarioBr
+ItemBuscaValorizacaoAction ->> BranqsSupport : RecuperarMonetarioBr(n)
 activate BranqsSupport
 BranqsSupport -->> ItemBuscaValorizacaoAction : #32
 deactivate BranqsSupport
