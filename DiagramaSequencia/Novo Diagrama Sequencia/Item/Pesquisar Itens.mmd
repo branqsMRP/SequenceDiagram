@@ -10,19 +10,19 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemListaAction : #32; 
 deactivate ItemService
-ItemListaAction ->> ItemService : getItens
+ItemListaAction ->> ItemService : getItens(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItens
+ItemService ->> ItemDAO : getItens(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO

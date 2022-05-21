@@ -10,15 +10,15 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemVerificaFabricadoAction : #32; 
 deactivate ItemService
-ItemVerificaFabricadoAction ->> ItemService : isItemFabricado
+ItemVerificaFabricadoAction ->> ItemService : isItemFabricado(idItem)
 activate ItemService
-ItemService ->> ItemService : getListaMaterial
+ItemService ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO

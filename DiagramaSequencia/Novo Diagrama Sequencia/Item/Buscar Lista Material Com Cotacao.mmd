@@ -10,11 +10,11 @@ ItemDAO -->> ItemService : #32
 deactivate ItemDAO
 ItemService -->> ItemListaMaterialCotacaoAction : #32
 deactivate ItemService
-ItemListaMaterialCotacaoAction ->> ItemService : getItem
+ItemListaMaterialCotacaoAction ->> ItemService : getItem(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItem
+ItemService ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -22,29 +22,13 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemListaMaterialCotacaoAction : #32; 
 deactivate ItemService
-ItemListaMaterialCotacaoAction ->> ItemService : getListaMaterial
+ItemListaMaterialCotacaoAction ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
-activate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO -->> ItemService : #32; 
-deactivate ItemDAO
-ItemService -->> ItemListaMaterialCotacaoAction : #32; 
-deactivate ItemService
-ItemListaMaterialCotacaoAction ->> ItemService : getListaMaterial
-activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
-activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
-activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -54,83 +38,99 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemListaMaterialCotacaoAction : #32; 
 deactivate ItemService
-ItemListaMaterialCotacaoAction ->> ItemService : getCotacaoItem
+ItemListaMaterialCotacaoAction ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getCotacaoItem
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
-activate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
-activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
-activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
+ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
+ItemService -->> ItemListaMaterialCotacaoAction : #32; 
+deactivate ItemService
+ItemListaMaterialCotacaoAction ->> ItemService : getCotacaoItem(idItem)
+activate ItemService
+ItemService ->> ItemDAO : getCotacaoItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
-activate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItem
-activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
-activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO -->> ItemDAO : #32; 
-deactivate ItemDAO
-ItemDAO ->> ItemDAO : getListaMaterial
-activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItem(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getListaMaterial(idItem)
+activate ItemDAO
+ItemDAO ->> ItemDAO : getItem(idItem)
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
