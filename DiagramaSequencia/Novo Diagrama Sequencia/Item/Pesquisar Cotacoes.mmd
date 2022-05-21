@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> ItemCotacoesAction : pesquisarCotacoes
+actor EA as Engenheiro/Admin
+EA ->> ItemCotacoesAction : pesquisarCotacoes
 activate ItemCotacoesAction
 ItemCotacoesAction ->> ItemService : new
 activate ItemService
@@ -14,16 +14,8 @@ ItemCotacoesAction ->> ItemService : getItem
 activate ItemService
 ItemService ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
-ItemDAO ->> Cotacao : new
-activate Cotacao
-Cotacao -->> ItemDAO : #32; 
-deactivate Cotacao
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemService : #32; 
@@ -34,10 +26,6 @@ ItemCotacoesAction ->> ItemService : getCotacoes
 activate ItemService
 ItemService ->> ItemDAO : getCotacoes
 activate ItemDAO
-ItemDAO ->> Cotacao : new
-activate Cotacao
-Cotacao -->> ItemDAO : #32; 
-deactivate Cotacao
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemCotacoesAction : #32; 

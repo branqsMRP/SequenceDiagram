@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> ItemBuscaItemAction : buscarItem
+actor AA as Almoxarifado/Admin
+AA ->> ItemBuscaItemAction : buscarItem
 activate ItemBuscaItemAction
 ItemBuscaItemAction ->> ItemService : new
 activate ItemService
@@ -14,10 +14,6 @@ ItemBuscaItemAction ->> ItemService : getItensById
 activate ItemService
 ItemService ->> ItemDAO : getItensById
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemBuscaItemAction : #32; 
@@ -25,7 +21,7 @@ deactivate ItemService
 deactivate ItemBuscaItemAction
 
 opt Busca por Item Fabricado
-    User ->> ItemBuscaItemAction : buscarItemFabricado
+    AA ->> ItemBuscaItemAction : buscarItemFabricado
     activate ItemBuscaItemAction
     ItemBuscaItemAction ->> ItemService : new
     activate ItemService
@@ -39,10 +35,6 @@ opt Busca por Item Fabricado
     activate ItemService
     ItemService ->> ItemDAO : getItensFabriacadosById
     activate ItemDAO
-    ItemDAO ->> Item : new
-    activate Item
-    Item -->> ItemDAO : #32; 
-    deactivate Item
     ItemDAO -->> ItemService : #32; 
     deactivate ItemDAO
     ItemService -->> ItemBuscaItemAction : #32; 

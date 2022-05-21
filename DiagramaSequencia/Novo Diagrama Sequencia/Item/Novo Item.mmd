@@ -12,24 +12,12 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> Item : new
-activate Item
-Item -->> ItemAction : #32; 
-deactivate Item
 ItemAction ->> ItemService : getItem
 activate ItemService
 ItemService ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
-ItemDAO ->> Cotacao : new
-activate Cotacao
-Cotacao -->> ItemDAO : #32; 
-deactivate Cotacao
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemService : #32; 
@@ -46,34 +34,18 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> Item : new
-activate Item
-Item -->> ItemAction : #32; 
-deactivate Item
 ItemAction ->> ItemService : getListaMaterial
 activate ItemService
 ItemService ->> ItemDAO : getListaMaterial
 activate ItemDAO
 ItemDAO ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
-ItemDAO ->> Cotacao : new
-activate Cotacao
-Cotacao -->> ItemDAO : #32; 
-deactivate Cotacao
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> Material : new
-activate Material
-Material -->> ItemDAO : #32; 
-deactivate Material
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 

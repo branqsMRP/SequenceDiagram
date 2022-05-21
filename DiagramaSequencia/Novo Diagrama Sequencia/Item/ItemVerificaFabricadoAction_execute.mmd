@@ -1,6 +1,6 @@
 sequenceDiagram
-actor User
-User ->> ItemVerificaFabricadoAction : execute
+actor AA as Admin/Almoxarifado
+AA ->> ItemVerificaFabricadoAction : execute
 activate ItemVerificaFabricadoAction
 ItemVerificaFabricadoAction ->> ItemService : new
 activate ItemService
@@ -18,20 +18,12 @@ ItemService ->> ItemDAO : getListaMaterial
 activate ItemDAO
 ItemDAO ->> ItemDAO : getItem
 activate ItemDAO
-ItemDAO ->> Item : new
-activate Item
-Item -->> ItemDAO : #32; 
-deactivate Item
 ItemDAO ->> ItemDAO : getCotacaoItemComprado
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
-ItemDAO ->> Material : new
-activate Material
-Material -->> ItemDAO : #32; 
-deactivate Material
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemService : #32; 
