@@ -12,11 +12,11 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> LoteAction : #32; 
 deactivate ItemService
-LoteAction ->> ItemService : getItem
+LoteAction ->> ItemService : getItem(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItem
+ItemService ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -24,13 +24,13 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> LoteAction : #32; 
 deactivate ItemService
-LoteAction ->> ItemService : isItemFabricado
+LoteAction ->> ItemService : isItemFabricado(idItem)
 activate ItemService
-ItemService ->> ItemService : getListaMaterial
+ItemService ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -50,11 +50,11 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> LoteAction : #32; 
 deactivate ItemService
-LoteAction ->> ItemService : getItem
+LoteAction ->> ItemService : getItem(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItem
+ItemService ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO

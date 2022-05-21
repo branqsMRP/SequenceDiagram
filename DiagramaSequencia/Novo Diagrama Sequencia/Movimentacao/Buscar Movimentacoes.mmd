@@ -14,11 +14,11 @@ MovimentacaoDAO -->> MovimentacaoService : #32;
 deactivate MovimentacaoDAO
 MovimentacaoService -->> MovimentacaoHistoricoAction : #32; 
 deactivate MovimentacaoService
-MovimentacaoHistoricoAction ->> MovimentacaoService : getMovimentacoes
+MovimentacaoHistoricoAction ->> MovimentacaoService : getMovimentacoes(idItem, nrSerie, desc, dataIni, dataFim,tipoMov)
 activate MovimentacaoService
-MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes
+MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes(idItem, nrSerie, desc, dataIni, dataFim,tipoMov)
 activate MovimentacaoDAO
-MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao
+MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao(idMovimentacao)
 activate MovimentacaoDAO
 MovimentacaoDAO ->> ItemService : new
 activate ItemService
@@ -28,9 +28,9 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> MovimentacaoDAO : #32; 
 deactivate ItemService
-MovimentacaoDAO ->> ItemService : getItem
+MovimentacaoDAO ->> ItemService : getItem(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItem
+ItemService ->> ItemDAO : getItem(idItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
@@ -44,9 +44,9 @@ UsuarioDAO -->> UsuarioService : #32;
 deactivate UsuarioDAO
 UsuarioService -->> MovimentacaoDAO : #32; 
 deactivate UsuarioService
-MovimentacaoDAO ->> UsuarioService : getUsuario
+MovimentacaoDAO ->> UsuarioService : getUsuario(idUsuario)
 activate UsuarioService
-UsuarioService ->> UsuarioDAO : getUsuario
+UsuarioService ->> UsuarioDAO : getUsuario(idUsuario)
 activate UsuarioDAO
 UsuarioDAO -->> UsuarioService : #32; 
 deactivate UsuarioDAO
