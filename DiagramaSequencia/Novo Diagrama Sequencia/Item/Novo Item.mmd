@@ -1,6 +1,6 @@
 sequenceDiagram
 actor EA as Engenheiro/Admin
-EA ->> ItemAction : inserir (Item, Nome Item)
+EA ->> ItemAction : inserir(idItem, nomeItem, ultimoFornecedor, prazoEntrega, impostos, partNumber, frete, possuiNrSerie, ativo, qtdeMinEstoque, unidade, itemADuplicar)
 activate ItemAction
 ItemAction ->> ItemAction : validar_Inserir
 activate ItemAction
@@ -10,25 +10,22 @@ activate ItemService
 ItemService ->> ItemDAO : new (idItem, nomeItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
-deactivate ItemService
-deactivate ItemDAO
-ItemAction ->> ItemService : getListaMaterial
+ItemAction ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-deactivate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> ItemService : inserir
+ItemAction ->> ItemService : inserir(item)
 activate ItemService
-ItemService ->> ItemDAO : inserir
+ItemService ->> ItemDAO : inserir(item)
 activate ItemDAO
-ItemDAO ->> ItemDAO : atualizaListaMateriais
+ItemDAO ->> ItemDAO : atualizaListaMateriais(item)
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
