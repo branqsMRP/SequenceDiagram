@@ -1,6 +1,6 @@
 sequenceDiagram
 actor AD as Admin/Defalt
-AD ->> MovimentacaoHistoricoAction : buscarMovimentacoes
+AD ->> MovimentacaoHistoricoAction : buscarMovimentacoes(idItem, nrSerie, desc, dataIni, dataFim, tipoMov)
 activate MovimentacaoHistoricoAction
 MovimentacaoHistoricoAction ->> MovimentacaoHistoricoAction : validar_buscarMovimentacoes
 activate MovimentacaoHistoricoAction
@@ -14,7 +14,7 @@ MovimentacaoDAO -->> MovimentacaoService : #32;
 deactivate MovimentacaoDAO
 MovimentacaoService -->> MovimentacaoHistoricoAction : #32; 
 deactivate MovimentacaoService
-MovimentacaoHistoricoAction ->> MovimentacaoService : getMovimentacoes(idItem, nrSerie, desc, dataIni, dataFim,tipoMov)
+MovimentacaoHistoricoAction ->> MovimentacaoService : getMovimentacoes(idItem, nrSerie, desc, dataIni, dataFim, tipoMov)
 activate MovimentacaoService
 MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes(idItem, nrSerie, desc, dataIni, dataFim,tipoMov)
 activate MovimentacaoDAO

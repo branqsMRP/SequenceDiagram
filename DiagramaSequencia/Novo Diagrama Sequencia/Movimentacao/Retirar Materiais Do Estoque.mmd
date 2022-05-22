@@ -1,6 +1,6 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> MovimentacaoAction : retirarMateriaisDoEstoque
+AA ->> MovimentacaoAction : retirarMateriaisDoEstoque(movimentacao)
 activate MovimentacaoAction
 MovimentacaoAction ->> MovimentacaoAction : validar_RetirarMateriaisDoEstoque
 activate MovimentacaoAction
@@ -12,7 +12,7 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> MovimentacaoAction : #32; 
 deactivate ItemService
-MovimentacaoAction ->> ItemService : existeItemComNrSerieEmEstoque
+MovimentacaoAction ->> ItemService : existeItemComNrSerieEmEstoque(idItem, nrSerie)
 activate ItemService
 ItemService ->> MovimentacaoService : new
 activate MovimentacaoService
@@ -22,15 +22,15 @@ MovimentacaoDAO -->> MovimentacaoService : #32;
 deactivate MovimentacaoDAO
 MovimentacaoService -->> ItemService : #32; 
 deactivate MovimentacaoService
-ItemService ->> MovimentacaoService : getMovimentacoes
+ItemService ->> MovimentacaoService : getMovimentacoes(idItem, nrSerie)
 activate MovimentacaoService
-MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes
+MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes(idItem, nrSerie)
 activate MovimentacaoDAO
 MovimentacaoDAO ->> ItemService : new
 activate ItemService
 ItemService -->> MovimentacaoDAO : #32; 
 deactivate ItemService
-MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao
+MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao(idItem)
 activate MovimentacaoDAO
 MovimentacaoDAO -->> MovimentacaoDAO : #32; 
 deactivate MovimentacaoDAO
@@ -50,11 +50,11 @@ MovimentacaoDAO -->> MovimentacaoService : #32;
 deactivate MovimentacaoDAO
 MovimentacaoService -->> MovimentacaoAction : #32; 
 deactivate MovimentacaoService
-MovimentacaoAction ->> MovimentacaoService : retirarDoEstoque
+MovimentacaoAction ->> MovimentacaoService : retirarDoEstoque(movimentacao)
 activate MovimentacaoService
-MovimentacaoService ->> MovimentacaoDAO : retirarDoEstoque
+MovimentacaoService ->> MovimentacaoDAO : retirarDoEstoque(movimentacao)
 activate MovimentacaoDAO
-MovimentacaoDAO ->> MovimentacaoDAO : movimentar
+MovimentacaoDAO ->> MovimentacaoDAO : movimentar(movimentacao)
 activate MovimentacaoDAO
 MovimentacaoDAO -->> MovimentacaoDAO : #32; 
 deactivate MovimentacaoDAO

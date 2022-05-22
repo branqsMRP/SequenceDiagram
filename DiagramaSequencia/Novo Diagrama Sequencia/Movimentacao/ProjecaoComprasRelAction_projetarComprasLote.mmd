@@ -14,15 +14,15 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ProjecaoComprasRelAction : #32; 
 deactivate ItemService
-ProjecaoComprasRelAction ->> ItemService : somarInsumoListaPrincipal
+ProjecaoComprasRelAction ->> ItemService : somarInsumoListaPrincipal(materiaisFabricadosDoLote)
 activate ItemService
-ItemService ->> ItemService : getListaMaterial
+ItemService ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -34,17 +34,17 @@ ItemService -->> ItemService : #32;
 deactivate ItemService
 ItemService -->> ProjecaoComprasRelAction : #32; 
 deactivate ItemService
-ProjecaoComprasRelAction ->> ItemService : getQtdeAComprar
+ProjecaoComprasRelAction ->> ItemService : getQtdeAComprar(Material)
 activate ItemService
 ItemService -->> ProjecaoComprasRelAction : #32; 
 deactivate ItemService
-ProjecaoComprasRelAction ->> ItemService : getItensAComprar
+ProjecaoComprasRelAction ->> ItemService : getItensAComprar(listaItensComprar)
 activate ItemService
-ItemService ->> ItemDAO : getItensAComprar
+ItemService ->> ItemDAO : getItensAComprar(listaItensComprar)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -54,11 +54,11 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ProjecaoComprasRelAction : #32; 
 deactivate ItemService
-ProjecaoComprasRelAction ->> ItemService : ordenarMateriaisPorFornecedor
+ProjecaoComprasRelAction ->> ItemService : ordenarMateriaisPorFornecedor(listaMateriais)
 activate ItemService
 ItemService -->> ProjecaoComprasRelAction : #32; 
 deactivate ItemService
-ProjecaoComprasRelAction ->> ItemService : getQtdeAComprar
+ProjecaoComprasRelAction ->> ItemService : getQtdeAComprar(Material)
 activate ItemService
 ItemService -->> ProjecaoComprasRelAction : #32; 
 deactivate ItemService
