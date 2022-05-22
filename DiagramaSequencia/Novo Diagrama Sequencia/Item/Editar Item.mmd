@@ -1,6 +1,6 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> ItemAction : editItem
+AA ->> ItemAction : editItem(idItem)
 activate ItemAction
 ItemAction ->> ItemService : new
 activate ItemService
@@ -10,13 +10,13 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> ItemService : getItemComListaMaterial
+ItemAction ->> ItemService : getItemComListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemService : getItem
+ItemService ->> ItemService : getItem(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItem
+ItemService ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -24,13 +24,13 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemService : #32; 
 deactivate ItemService
-ItemService ->> ItemService : getListaMaterial
+ItemService ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -42,13 +42,13 @@ ItemService -->> ItemService : #32;
 deactivate ItemService
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> ItemService : getNumerosDeSerieEmEstoque
+ItemAction ->> ItemService : getNumerosDeSerieEmEstoque(idItem, nrSerie)
 activate ItemService
-ItemService ->> ItemDAO : getNumerosDeSerie
+ItemService ->> ItemDAO : getNumerosDeSerie(idItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
-ItemService ->> ItemService : existeItemComNrSerieEmEstoque
+ItemService ->> ItemService : existeItemComNrSerieEmEstoque(idItem, nrSerie)
 activate ItemService
 ItemService ->> MovimentacaoService : new
 activate MovimentacaoService
@@ -58,15 +58,15 @@ MovimentacaoDAO -->> MovimentacaoService : #32;
 deactivate MovimentacaoDAO
 MovimentacaoService -->> ItemService : #32; 
 deactivate MovimentacaoService
-ItemService ->> MovimentacaoService : getMovimentacoes
+ItemService ->> MovimentacaoService : getMovimentacoes(idItem, nrSerie)
 activate MovimentacaoService
-MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes
+MovimentacaoService ->> MovimentacaoDAO : getMovimentacoes(idItem, nrSerie)
 activate MovimentacaoDAO
 MovimentacaoDAO ->> ItemService : new
 activate ItemService
 ItemService -->> MovimentacaoDAO : #32; 
 deactivate ItemService
-MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao
+MovimentacaoDAO ->> MovimentacaoDAO : getMovimentacao(idMovimentacao)
 activate MovimentacaoDAO
 MovimentacaoDAO -->> MovimentacaoDAO : #32; 
 deactivate MovimentacaoDAO
@@ -78,13 +78,13 @@ ItemService -->> ItemService : #32;
 deactivate ItemService
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> ItemService : getItensPossuemNaListaMaterial
+ItemAction ->> ItemService : getItensPossuemNaListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getItensPossuemNaListaMaterial
+ItemService ->> ItemDAO : getItensPossuemNaListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -94,13 +94,13 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> ItemService : getListaMaterial
+ItemAction ->> ItemService : getListaMaterial(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterial
+ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
@@ -110,13 +110,13 @@ ItemDAO -->> ItemService : #32;
 deactivate ItemDAO
 ItemService -->> ItemAction : #32; 
 deactivate ItemService
-ItemAction ->> ItemService : getListaMaterialInativo
+ItemAction ->> ItemService : getListaMaterialInativo(idItem)
 activate ItemService
-ItemService ->> ItemDAO : getListaMaterialInativo
+ItemService ->> ItemDAO : getListaMaterialInativo(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getItem
+ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
 activate ItemDAO
 ItemDAO -->> ItemDAO : #32; 
 deactivate ItemDAO
