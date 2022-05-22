@@ -1,12 +1,12 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> LoteAction : AdicionarItemFabricadoNaListaDoLote
+AA ->> LoteAction : AdicionarItemFabricadoNaListaDoLote (ID Item Fabricado, Quantidade)   
 activate LoteAction
-LoteAction ->> LoteAction : validar_AdicionarItemFabricadoNaListaDoLote
+LoteAction ->> LoteAction : validar_AdicionarItemFabricadoNaListaDoLote 
 activate LoteAction
-LoteAction ->> ItemService : new
+LoteAction ->> ItemService : new (idItem, qtd)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, qtd)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

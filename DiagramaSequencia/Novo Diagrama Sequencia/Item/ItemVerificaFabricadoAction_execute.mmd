@@ -1,10 +1,10 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> ItemVerificaFabricadoAction : execute
+AA ->> ItemVerificaFabricadoAction : execute (Item)
 activate ItemVerificaFabricadoAction
-ItemVerificaFabricadoAction ->> ItemService : new
+ItemVerificaFabricadoAction ->> ItemService : new (idItem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

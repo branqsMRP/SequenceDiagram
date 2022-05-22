@@ -1,12 +1,12 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> MovimentacaoAction : retirarMateriaisDoEstoque(movimentacao)
+AA ->> MovimentacaoAction : retirarMateriaisDoEstoque (ID Item, Qtde, N° de Serie)
 activate MovimentacaoAction
 MovimentacaoAction ->> MovimentacaoAction : validar_RetirarMateriaisDoEstoque
 activate MovimentacaoAction
-MovimentacaoAction ->> ItemService : new
+MovimentacaoAction ->> ItemService : new (idItem, qtde, nrSerie)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, qtde, nrSerie)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

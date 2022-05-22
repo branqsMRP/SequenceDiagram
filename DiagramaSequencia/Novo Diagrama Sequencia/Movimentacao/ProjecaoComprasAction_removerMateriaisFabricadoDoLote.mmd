@@ -2,13 +2,13 @@ sequenceDiagram
 actor CA as Compras/Admin
 CA ->> ProjecaoComprasAction : removerMateriaisFabricadoDoLote(materialFabLote, listaIdItem)
 activate ProjecaoComprasAction
-ProjecaoComprasAction ->> ProjecaoComprasAction : validar_RemoverMateriaisFabricadoDoLote
+ProjecaoComprasAction ->> ProjecaoComprasAction : validar_RemoverMateriaisFabricadoDoLote 
 activate ProjecaoComprasAction
 ProjecaoComprasAction -->> ProjecaoComprasAction : #32; 
 deactivate ProjecaoComprasAction
-ProjecaoComprasAction ->> ItemService : new
+ProjecaoComprasAction ->> ItemService : new (materialFabLote, listaIdItem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (materialFabLote, listaIdItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

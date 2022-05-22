@@ -1,10 +1,10 @@
 sequenceDiagram
 actor EA as Engenheiro/Admin
-EA ->> ItemCotacoesAction : pesquisarCotacoes
+EA ->> ItemCotacoesAction : pesquisarCotacoes (Item)
 activate ItemCotacoesAction
-ItemCotacoesAction ->> ItemService : new
+ItemCotacoesAction ->> ItemService : new (idItem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

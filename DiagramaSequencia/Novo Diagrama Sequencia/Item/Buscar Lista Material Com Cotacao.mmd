@@ -1,10 +1,10 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> ItemListaMaterialCotacaoAction : buscarListaMaterialComCotacao
+AA ->> ItemListaMaterialCotacaoAction : buscarListaMaterialComCotacao (Item)
 activate ItemListaMaterialCotacaoAction
-ItemListaMaterialCotacaoAction ->> ItemService : new
+ItemListaMaterialCotacaoAction ->> ItemService : new (idItem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32 
 deactivate ItemDAO

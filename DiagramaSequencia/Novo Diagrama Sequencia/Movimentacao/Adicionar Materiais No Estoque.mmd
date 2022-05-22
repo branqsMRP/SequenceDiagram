@@ -1,12 +1,12 @@
 sequenceDiagram
 actor User
-User ->> MovimentacaoAction : adicionarMateriaisNoEstoque
+User ->> MovimentacaoAction : adicionarMateriaisNoEstoque (Descrição da Movimentção, Tipo da Movimentação)
 activate MovimentacaoAction
 MovimentacaoAction ->> MovimentacaoAction : validar_AdicionarMateriaisNoEstoque
 activate MovimentacaoAction
-MovimentacaoAction ->> ItemService : new
+MovimentacaoAction ->> ItemService : new (descMov, tipoMov)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (descMov, tipoMov)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

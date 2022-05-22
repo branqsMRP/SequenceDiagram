@@ -1,10 +1,10 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> ItemBuscaValorizacaoAction : buscarItensComCotacao
+AA ->> ItemBuscaValorizacaoAction : buscarItensComCotacao (Item, Nome Item)
 activate ItemBuscaValorizacaoAction
-ItemBuscaValorizacaoAction ->> ItemService : new
+ItemBuscaValorizacaoAction ->> ItemService : new (idItem, nomeItem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, nomeItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32 
 deactivate ItemDAO

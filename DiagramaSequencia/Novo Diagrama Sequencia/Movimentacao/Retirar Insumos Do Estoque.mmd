@@ -4,9 +4,9 @@ AA ->> LoteMovimentacaoAction : RetirarInsumosDoEstoque(descMovimentacao)
 activate LoteMovimentacaoAction
 LoteMovimentacaoAction ->> LoteMovimentacaoAction : validar_RetirarInsumosDoEstoque
 activate LoteMovimentacaoAction
-LoteMovimentacaoAction ->> ItemService : new
+LoteMovimentacaoAction ->> ItemService : new (descMovimentacao)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (descMovimentacao)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

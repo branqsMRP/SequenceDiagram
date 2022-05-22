@@ -1,22 +1,22 @@
 sequenceDiagram
 actor A as Admin
-A ->> UsuarioAction : inserirUsuario
+A ->> UsuarioAction : inserirUsuario (Usuario, Nome, Senha)
 activate UsuarioAction
 UsuarioAction ->> UsuarioAction : validar_InserirUsuario
 activate UsuarioAction
-UsuarioAction ->> UsuarioService : new
+UsuarioAction ->> UsuarioService : new (idUsuario, nome, senha)
 activate UsuarioService
-UsuarioService ->> UsuarioDAO : new
+UsuarioService ->> UsuarioDAO : new (idUsuario, nome, senha)
 activate UsuarioDAO
 UsuarioDAO -->> UsuarioService : #32; 
 deactivate UsuarioDAO
 UsuarioService -->> UsuarioAction : #32; 
 deactivate UsuarioService
-UsuarioAction ->> UsuarioService : getUsuario
+UsuarioAction ->> UsuarioService : getUsuario (idUsuario)
 activate UsuarioService
-UsuarioService ->> UsuarioDAO : getUsuario
+UsuarioService ->> UsuarioDAO : getUsuario (idUsuario)
 activate UsuarioDAO
-UsuarioDAO ->> UsuarioDAO : getPerfil
+UsuarioDAO ->> UsuarioDAO : getPerfil (id_perfil) 
 activate UsuarioDAO
 UsuarioDAO -->> UsuarioDAO : #32; 
 deactivate UsuarioDAO

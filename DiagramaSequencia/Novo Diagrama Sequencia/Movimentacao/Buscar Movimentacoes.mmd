@@ -6,9 +6,9 @@ MovimentacaoHistoricoAction ->> MovimentacaoHistoricoAction : validar_buscarMovi
 activate MovimentacaoHistoricoAction
 MovimentacaoHistoricoAction -->> MovimentacaoHistoricoAction : #32; 
 deactivate MovimentacaoHistoricoAction
-MovimentacaoHistoricoAction ->> MovimentacaoService : new
+MovimentacaoHistoricoAction ->> MovimentacaoService : new (idItem, nrSerie, desc, dataIni, dataFim, tipoMov)
 activate MovimentacaoService
-MovimentacaoService ->> MovimentacaoDAO : new
+MovimentacaoService ->> MovimentacaoDAO : new (idItem, nrSerie, desc, dataIni, dataFim, tipoMov)
 activate MovimentacaoDAO
 MovimentacaoDAO -->> MovimentacaoService : #32; 
 deactivate MovimentacaoDAO

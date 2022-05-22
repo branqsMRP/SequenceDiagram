@@ -4,9 +4,9 @@ CA ->> ProjecaoComprasAction : AdicionarItemFabricadoNaListaDoLote(idItem, qtdIt
 activate ProjecaoComprasAction
 ProjecaoComprasAction ->> ProjecaoComprasAction : validar_AdicionarItemFabricadoNaListaDoLote
 activate ProjecaoComprasAction
-ProjecaoComprasAction ->> ItemService : new
+ProjecaoComprasAction ->> ItemService : new (idItem, qtdItemFabricado)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, qtdItemFabricado)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

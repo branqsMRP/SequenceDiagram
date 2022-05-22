@@ -1,10 +1,10 @@
 sequenceDiagram
 actor AA as Almoxarifado/Admin
-AA ->> ItemBuscaItemAction : buscarItem
+AA ->> ItemBuscaItemAction : buscarItem (Item, Insumo, Origem)
 activate ItemBuscaItemAction
-ItemBuscaItemAction ->> ItemService : new
+ItemBuscaItemAction ->> ItemService : new (idItem, idInsumo, origem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, idInsumo, origem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
@@ -21,11 +21,11 @@ deactivate ItemService
 deactivate ItemBuscaItemAction
 
 opt Busca por Item Fabricado
-    AA ->> ItemBuscaItemAction : buscarItemFabricado
+    AA ->> ItemBuscaItemAction : buscarItemFabricado (Item, Insumo, Origem)
     activate ItemBuscaItemAction
-    ItemBuscaItemAction ->> ItemService : new
+    ItemBuscaItemAction ->> ItemService : new (idItem, idInsumo, origem)
     activate ItemService
-    ItemService ->> ItemDAO : new
+    ItemService ->> ItemDAO : new (idItem, idInsumo, origem)
     activate ItemDAO
     ItemDAO -->> ItemService : #32; 
     deactivate ItemDAO

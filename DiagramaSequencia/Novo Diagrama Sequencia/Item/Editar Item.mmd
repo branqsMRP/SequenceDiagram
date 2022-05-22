@@ -1,10 +1,10 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> ItemAction : editItem
+AA ->> ItemAction : editItem (Item, Origem)
 activate ItemAction
-ItemAction ->> ItemService : new
+ItemAction ->> ItemService : new (idItem, origem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, origem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO

@@ -1,10 +1,10 @@
 sequenceDiagram
 actor AA as Admin/Almoxarifado
-AA ->> ItemListaAction : pesquisarItens
+AA ->> ItemListaAction : pesquisarItens (Item, Nome)
 activate ItemListaAction
-ItemListaAction ->> ItemService : new
+ItemListaAction ->> ItemService : new (idItem, nomeItem)
 activate ItemService
-ItemService ->> ItemDAO : new
+ItemService ->> ItemDAO : new (idItem, nomeItem)
 activate ItemDAO
 ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
