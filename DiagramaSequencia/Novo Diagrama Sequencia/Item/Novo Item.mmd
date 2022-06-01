@@ -5,21 +5,25 @@ activate ItemAction
 ItemAction ->> ItemAction : validar_Inserir
 activate ItemAction
 deactivate ItemAction
-ItemAction ->> ItemService : new (idItem, nomeItem)
+ItemAction ->> ItemService : new
 activate ItemService
-ItemService ->> ItemDAO : new (idItem, nomeItem)
+ItemService ->> ItemDAO : new 
 activate ItemDAO
-ItemDAO -->> ItemService : #32; 
+ItemDAO -->> ItemService : #32;
+deactivate ItemDAO 
+ItemService-->>ItemAction: 
+deactivate ItemService
 ItemAction ->> ItemService : getListaMaterial(idItem)
 activate ItemService
 ItemService ->> ItemDAO : getListaMaterial(idItem)
 activate ItemDAO
 ItemDAO ->> ItemDAO : getItem(idItem)
 activate ItemDAO
-ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
-ItemDAO -->> ItemService : #32; 
 deactivate ItemDAO
-ItemService -->> ItemAction : #32; 
+ItemDAO ->> ItemDAO : getCotacaoItemComprado(idItem)
+ItemDAO -->> ItemService : Material 
+deactivate ItemDAO
+ItemService -->> ItemAction : Material
 deactivate ItemService
 ItemAction ->> ItemService : inserir(item)
 activate ItemService
