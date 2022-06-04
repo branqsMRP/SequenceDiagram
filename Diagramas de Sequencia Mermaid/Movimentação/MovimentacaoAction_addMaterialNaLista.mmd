@@ -1,0 +1,73 @@
+sequenceDiagram
+actor User
+User ->> MovimentacaoAction : addMaterialNaLista
+activate MovimentacaoAction
+MovimentacaoAction ->> MovimentacaoAction : validar_AddMaterialNaLista
+activate MovimentacaoAction
+MovimentacaoAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> MovimentacaoAction : #32; 
+deactivate ItemService
+MovimentacaoAction ->> MovimentacaoAction : isNumeroValido
+activate MovimentacaoAction
+MovimentacaoAction -->> MovimentacaoAction : #32; 
+deactivate MovimentacaoAction
+MovimentacaoAction ->> ItemService : getItem
+activate ItemService
+ItemService ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> MovimentacaoAction : #32; 
+deactivate ItemService
+MovimentacaoAction -->> MovimentacaoAction : #32; 
+deactivate MovimentacaoAction
+MovimentacaoAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> MovimentacaoAction : #32; 
+deactivate ItemService
+MovimentacaoAction ->> ItemService : getItem
+activate ItemService
+ItemService ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> MovimentacaoAction : #32; 
+deactivate ItemService
+MovimentacaoAction ->> Material : new
+activate Material
+Material -->> MovimentacaoAction : #32; 
+deactivate Material
+deactivate MovimentacaoAction

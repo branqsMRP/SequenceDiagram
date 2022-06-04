@@ -1,0 +1,9 @@
+sequenceDiagram
+actor User
+User ->> MovimentacaoAction : removerItensDaMovimentacao
+activate MovimentacaoAction
+MovimentacaoAction ->> MovimentacaoAction : validar_RemoverItensDaMovimentacao
+activate MovimentacaoAction
+MovimentacaoAction -->> MovimentacaoAction : #32; 
+deactivate MovimentacaoAction
+deactivate MovimentacaoAction

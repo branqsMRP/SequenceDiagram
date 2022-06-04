@@ -1,0 +1,93 @@
+sequenceDiagram
+actor User
+User ->> LoteAction : AdicionarItemFabricadoNaListaDoLote
+activate LoteAction
+LoteAction ->> LoteAction : validar_AdicionarItemFabricadoNaListaDoLote
+activate LoteAction
+LoteAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteAction : #32; 
+deactivate ItemService
+LoteAction ->> ItemService : getItem
+activate ItemService
+ItemService ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteAction : #32; 
+deactivate ItemService
+LoteAction ->> ItemService : isItemFabricado
+activate ItemService
+ItemService ->> ItemService : getListaMaterial
+activate ItemService
+ItemService ->> ItemDAO : getListaMaterial
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> Material : new
+activate Material
+Material -->> ItemDAO : #32; 
+deactivate Material
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteAction : #32; 
+deactivate ItemService
+LoteAction -->> LoteAction : #32; 
+deactivate LoteAction
+LoteAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteAction : #32; 
+deactivate ItemService
+LoteAction ->> ItemService : getItem
+activate ItemService
+ItemService ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteAction : #32; 
+deactivate ItemService
+LoteAction ->> Material : new
+activate Material
+Material -->> LoteAction : #32; 
+deactivate Material
+deactivate LoteAction
