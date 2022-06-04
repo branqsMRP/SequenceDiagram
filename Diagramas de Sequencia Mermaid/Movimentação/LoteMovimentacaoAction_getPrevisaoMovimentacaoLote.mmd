@@ -1,0 +1,121 @@
+sequenceDiagram
+actor User
+User ->> LoteMovimentacaoAction : getPrevisaoMovimentacaoLote
+activate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> LoteMovimentacaoAction : validar_getPrevisaoSaldoEstoque
+activate LoteMovimentacaoAction
+LoteMovimentacaoAction -->> LoteMovimentacaoAction : #32; 
+deactivate LoteMovimentacaoAction
+LoteMovimentacaoAction ->> ItemService : new
+activate ItemService
+ItemService ->> ItemDAO : new
+activate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : somarInsumoListaPrincipal
+activate ItemService
+ItemService ->> ItemService : getListaMaterial
+activate ItemService
+ItemService ->> ItemDAO : getListaMaterial
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO ->> Material : new
+activate Material
+Material -->> ItemDAO : #32; 
+deactivate Material
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : getPrevisaoMateriaisSaldoNegativoEmEstoque
+activate ItemService
+ItemService ->> ItemService : getItem
+activate ItemService
+ItemService ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : getPrevisaoMateriaisSaldoPositivoEmEstoque
+activate ItemService
+ItemService ->> ItemService : getItem
+activate ItemService
+ItemService ->> ItemDAO : getItem
+activate ItemDAO
+ItemDAO ->> Item : new
+activate Item
+Item -->> ItemDAO : #32; 
+deactivate Item
+ItemDAO ->> ItemDAO : getCotacaoItemComprado
+activate ItemDAO
+ItemDAO ->> Cotacao : new
+activate Cotacao
+Cotacao -->> ItemDAO : #32; 
+deactivate Cotacao
+ItemDAO -->> ItemDAO : #32; 
+deactivate ItemDAO
+ItemDAO -->> ItemService : #32; 
+deactivate ItemDAO
+ItemService -->> ItemService : #32; 
+deactivate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : getItensComNumeroSerie
+activate ItemService
+ItemService ->> Item : new
+activate Item
+Item -->> ItemService : #32; 
+deactivate Item
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : ordenarMateriaisPorDescricaoItem
+activate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> ItemService : ordenarMateriaisPorDescricaoItem
+activate ItemService
+ItemService -->> LoteMovimentacaoAction : #32; 
+deactivate ItemService
+LoteMovimentacaoAction ->> BranqsSupport : RecuperarNumeroBr
+activate BranqsSupport
+BranqsSupport -->> LoteMovimentacaoAction : #32; 
+deactivate BranqsSupport
+LoteMovimentacaoAction ->> BranqsSupport : RecuperarNumeroBr
+activate BranqsSupport
+BranqsSupport -->> LoteMovimentacaoAction : #32; 
+deactivate BranqsSupport
+LoteMovimentacaoAction ->> BranqsSupport : RecuperarNumeroBr
+activate BranqsSupport
+BranqsSupport -->> LoteMovimentacaoAction : #32; 
+deactivate BranqsSupport
+deactivate LoteMovimentacaoAction
